@@ -1,6 +1,11 @@
 -- Send file context to AI tmux panes created by tdl
 -- Finds panes by case-insensitive substring match on pane title
-local function find_pane(pattern)
+local pane_patterns = {
+  opencode = { "opencode", "OC " },
+  claude = { "claude" },
+}
+
+local function find_pane(name)
   local handle = io.popen("tmux list-panes -F '#{pane_id} #{pane_title}' 2>/dev/null")
   if not handle then
     return nil
@@ -8,11 +13,15 @@ local function find_pane(pattern)
   local output = handle:read("*a")
   handle:close()
 
-  local lower_pattern = pattern:lower()
+  local patterns = pane_patterns[name] or { name }
   for line in output:gmatch("[^\n]+") do
     local id, title = line:match("^(%S+)%s+(.+)$")
-    if title and title:lower():find(lower_pattern, 1, true) then
-      return id
+    if title then
+      for _, pattern in ipairs(patterns) do
+        if title:lower():find(pattern:lower(), 1, true) then
+          return id
+        end
+      end
     end
   end
   return nil
