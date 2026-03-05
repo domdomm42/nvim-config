@@ -32,7 +32,8 @@ return {
       },
     },
     diff_opts = {
-      vertical_split = true,
+      layout = "vertical",
+      open_in_new_tab = true,
     },
   },
   -- Auto-start ClaudeCode when launched from tdl

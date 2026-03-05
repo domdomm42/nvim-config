@@ -3,3 +3,5 @@
 -- Add any additional options here
 vim.opt.relativenumber = true
 vim.opt.fillchars:append({ diff = " " })
+vim.opt.diffopt:append("algorithm:histogram")
+vim.opt.diffopt:append("indent-heuristic")
