@@ -60,12 +60,12 @@ local function send_to_pane(pattern, mode)
     if start_line > end_line then
       start_line, end_line = end_line, start_line
     end
-    text = string.format("Look at %s:%d-%d ", file, start_line, end_line)
+    text = string.format("@%s:%d-%d ", file, start_line, end_line)
   elseif mode == "f" then
-    text = string.format("Look at %s ", file)
+    text = string.format("@%s ", file)
   else
     local line = vim.fn.line(".")
-    text = string.format("Look at %s:%d ", file, line)
+    text = string.format("@%s:%d ", file, line)
   end
 
   local escaped = escape_for_tmux(text)

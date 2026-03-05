@@ -1,3 +1,10 @@
+local function focus_claude_pane()
+  local pane_id = vim.env.TDL_CLAUDE_PANE
+  if pane_id then
+    vim.fn.system({ "tmux", "select-pane", "-t", pane_id })
+  end
+end
+
 return {
   "coder/claudecode.nvim",
   opts = {
@@ -34,6 +41,17 @@ return {
     diff_opts = {
       layout = "vertical",
       open_in_new_tab = true,
+    },
+  },
+  keys = {
+    {
+      "<leader>as",
+      function()
+        vim.cmd("ClaudeCodeSend")
+        focus_claude_pane()
+      end,
+      mode = "v",
+      desc = "Send to Claude",
     },
   },
   -- Auto-start ClaudeCode when launched from tdl

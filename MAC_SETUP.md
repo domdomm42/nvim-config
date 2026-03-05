@@ -126,11 +126,13 @@ tdl c cx
 | `<leader>aa` | Accept diff               |
 | `<leader>ad` | Deny diff                 |
 | `<leader>ab` | Add current buffer        |
-| `<leader>as` | Send selection (visual)   |
+| `<leader>as` | Send selection + focus Claude (visual) |
 
 ## Key bindings (from tmux-chat.lua)
 
+Sends `@file` or `@file:line-range` to the AI pane and focuses it.
+
 | Key          | Action                          |
 |-------------|----------------------------------|
-| `<leader>io` | Send file/selection to opencode |
-| `<leader>ic` | Send file/selection to claude   |
+| `<leader>io` | Send @file/selection to opencode |
+| `<leader>ic` | Send @file/selection to claude   |
