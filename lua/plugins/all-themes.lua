@@ -67,9 +67,22 @@ return {
 		name = "rose-pine",
 		lazy = true,
 		priority = 1000,
+		opts = {
+			variant = "moon",
+			disable_background = true,
+			disable_float_background = true,
+			styles = {
+				italic = false,
+			},
+		},
 	},
 	{
 		"folke/tokyonight.nvim",
+		lazy = true,
+		priority = 1000,
+	},
+	{
+		"vague-theme/vague.nvim",
 		lazy = true,
 		priority = 1000,
 	},

@@ -4,10 +4,10 @@ return {
     suggestion = {
       enabled = true,
       auto_trigger = true,
-      debounce = 50,
+      debounce = 20,
       keymap = {
-        accept_line = "<Tab>",
-        accept = "<M-l>",
+        accept = "<Tab>",
+        accept_line = "<M-l>",
         accept_word = "<M-w>",
         next = "<M-]>",
         prev = "<M-[>",

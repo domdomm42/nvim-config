@@ -9,15 +9,7 @@ return {
     keymap = {
       preset = "enter",
       ["<C-y>"] = { "select_and_accept" },
-      ["<Tab>"] = {
-        function(cmp)
-          local copilot = require("copilot.suggestion")
-          if copilot.is_visible() then
-            copilot.accept()
-          end
-          -- Don't do anything else - let arrow keys handle menu navigation
-        end,
-      },
+      ["<Tab>"] = { "fallback" },
       ["<Down>"] = { "select_next" },
       ["<Up>"] = { "select_prev" },
     },
