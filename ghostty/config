@@ -1,0 +1,7 @@
+theme = rose-pine-moon
+background = 191e2b
+background-opacity = 1.0
+background-blur = false
+confirm-close-surface = false
+shell-integration-features = no-cursor,no-sudo,no-title
+keybind = ctrl+enter=unbind
